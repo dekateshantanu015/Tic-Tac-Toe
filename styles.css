@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+@font-face {
+  font-family: "Feasts of Flesh";
+  src: url(./fonts/FEASFBRG.TTF);
+}
+/* CSS Reset */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/* Actual CSS */
+
+/* Global */
+
+:root {
+  --yellow: #FFDE19;
+  --dark-yellow: #F7941D;
+  --violet: #6570D6;
+  --dark-violet: #272F7A;
+  --black: #000;
+  --white: #fff;
+}
+
+html {
+  background-color: #000;
+}
+
+body {
+  font-family: "Bangers", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  height: 100vh;
+  color: var(--white);
+}
+
+.hidden {
+  display: none !important;
+}
+
+button {
+  all: unset;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:disabled:hover {
+  cursor: not-allowed;
+}
+
+button > img {
+  max-height: 150px;
+}
+
+/* First Screen */
+
+.title-container {
+  position: relative;
+  text-align: center;
+}
+
+.game-title {
+  position: relative;
+  font-family: "Bangers", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: .8;
+  z-index: 2;
+}
+
+.game-title > * {
+  z-index: 2;
+}
+
+.game-title > .heroes {
+  color: var(--yellow);
+  font-size: 100px;
+  text-shadow: 10px 0px 0px var(--dark-yellow);
+}
+
+.game-title > .villains {
+  font-family: "Feasts of Flesh", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--violet);
+  font-size: 100px;
+  text-shadow: -10px 0px 0px var(--dark-violet);
+}
+
+.subtitle {
+  font-family: "Bangers";
+  font-size: 40px;
+  rotate: -3deg;
+  background-color: var(--white);
+  padding: 0px 50px;
+  z-index: 1;
+  color: var(--black);
+}
+
+/* Game controllers */
+
+.game-controllers {
+  margin-top: 30px;
+  display: grid;
+  justify-items: center;
+  row-gap: 25px;
+}
+
+.players-selector {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  align-content: center;
+  align-items: center;
+}
+
+.player-1-selector,
+.player-2-selector {
+  display: grid;
+  justify-items: center;
+}
+
+.hero-selector,
+.villain-selector {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.hero-selector-msg,
+.villain-selector-msg {
+  text-align: center;
+  font-size: 24px;
+  padding: 5px;
+  max-width: 30ch;
+}
+
+.hero-selector-msg > .emphasis,
+.player-one-box-score > .emphasis {
+  color: var(--yellow);
+  text-shadow: 2px 0px 0px var(--dark-yellow);
+}
+
+.villain-selector-msg > .emphasis,
+.player-two-box-score > .emphasis {
+  color: var(--violet);
+  text-shadow: 1px 0px 0px var(--dark-violet);
+}
+
+.hero-selector > button,
+.villain-selector > button {
+  padding: 20px;
+}
+
+.hero-selector > button {
+  background-color: var(--yellow);
+  border: 5px solid var(--yellow);
+  transition: 500ms;
+}
+
+.hero-selector > button:hover {
+  border-color: var(--dark-yellow);
+}
+
+.hero-selector > button:disabled {
+  border-color: var(--yellow) !important;
+}
+
+.hero-selected {
+  background-color: var(--dark-yellow) !important;
+  border-color: var(--dark-yellow) !important;
+}
+
+.villain-selector > button {
+  background-color: var(--violet);
+  border: 5px solid var(--violet);
+  transition: 500ms;
+}
+
+.villain-selector > button:hover {
+  border-color: var(--dark-violet);
+}
+
+.villain-selector > button:disabled {
+  border-color: var(--violet) !important;
+}
+
+.villain-selected {
+  background-color: var(--dark-violet) !important;
+  border-color: var(--dark-violet) !important;
+}
+
+.new-game-btn {
+  font-size: 40px;
+  padding: 10px 45px;
+  background-color: var(--dark-yellow);
+  transform: skewX(-15deg);
+  box-shadow: 6px 6px 0 var(--dark-violet);
+  max-width: 300px;
+  text-align: center;
+  transition: 500ms;
+}
+
+.new-game-btn:disabled {
+  background-color: var(--dark-violet);
+  box-shadow: 6px 6px 0 var(--dark-yellow);
+}
+
+/* Scores */
+
+.score-controllers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  font-size: 40px;
+}
+
+.player-one-box-score {
+  justify-self: end;
+  display: grid;
+  justify-items: end;
+}
+
+/* System Messages */
+.system-msgs {
+  font-size: 24px;
+}
+
+/*Gameboard */
+
+#gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    justify-content: center;
+    align-items: center;
+}
+
+.cell {
+    border: 2px solid var(--white);
+    height: 150px;
+    width: 150px;
+}
+
+.token > img {
+  max-height: 100px;
+  padding: 10px;
+  margin: 0 auto;
+}
