@@ -5,7 +5,7 @@ The Hero vs. Villain Tic Tac Toe project introduces a thematic twist to the clas
 ## **Live**
 
 
-A live deployment of [`Tic-tac-toe`](https://dekateshantanu015.github.io/tic-tac-toe/) is available on GitHub pages, check it out without need of installation
+A live deployment of [`Tic-tac-toe`](https://dekateshantanu015.github.io/Tic-Tac-Toe/) is available on GitHub pages, check it out without need of installation
 
 
 
